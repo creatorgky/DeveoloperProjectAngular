@@ -1,0 +1,47 @@
+<div class="mb-3">
+    <!-- <label for="filterText" class="form-label">Ürün Arama:</label>
+    <input type="text" [(ngModel)]="filterText" class="form-control" id="filterText" placeholder="Bir ürün giriniz.">
+  </div>
+  <div *ngIf="filterText" class="alert alert-success">
+    {{filterText}} aradınız. -->
+</div>
+<table class="table">
+    <thead>
+        <th>Id</th>
+        <th>Marka</th>
+        <th>Renk</th>
+        <th>Model Yılı</th>
+        <th>Fiyat</th>
+        <th>Detaylar</th>
+    </thead>
+    <tbody>
+        <tr *ngFor="let cardetail of cars ">
+        <td>{{cardetail.carId}}</td>
+        <td>{{cardetail.brandName }}</td>
+        <td>{{cardetail.colorName}}</td>
+        <td>{{cardetail.modelYear}}</td>
+        <td>{{cardetail.dailyPrice}}</td>
+        <td>{{cardetail.description}}</td>
+        </tr>
+    </tbody>
+</table>
+<div class="container">
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+      <div class="col-md-4" *ngFor="let car of cars">
+        <mat-card class="car-card">
+          <img  class="d-block" [src]="getCarImagePath(car.carId)">
+          <mat-card-header>
+            <mat-card-title>{{ car.brandName }}</mat-card-title>
+            <mat-card-subtitle>{{ car.modelYear }}</mat-card-subtitle>
+          </mat-card-header>
+          <mat-card-content>          
+            <p>{{ car.description }} </p>  
+          </mat-card-content>
+          <mat-card-actions>
+            <button type="button" routerLink="/cars/carId/{{car.carId}}" mat-raised-button color="primary">İncele</button>
+          </mat-card-actions>
+        </mat-card>
+      </div>
+    </div>
+</div>
+ 
