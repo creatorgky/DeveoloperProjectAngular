@@ -1,1 +1,28 @@
-<p>rental works!</p>
+<div class="mb-3">
+  <label for="filterText" class="form-label">Kiralayan Arayınız:</label>
+  <input type="text" [(ngModel)]="filterText" class="form-control" id="filterText" placeholder="Bir ürün giriniz.">
+</div>
+<div *ngIf="filterText" class="alert alert-success">
+  {{filterText}} aradınız.
+</div>
+<table class="table">
+  <thead>
+      <th>Id</th>
+      <th>Model Adı</th>
+      <th>Kiralayan İsimi</th>
+      <th>Soyismi</th>
+      <th>Kiraladığı Tarih</th>
+      <th>Bırakacağı Tarih</th>
+  </thead>
+  <tbody>
+      <tr *ngFor="let rental of rentals | filter:filterText ">
+      <td>{{rental.rentalId}}</td>
+      <td>{{rental.brandName }}</td>
+      <td>{{rental.firstName}}</td>
+      <td>{{rental.lastName}}</td>
+      <td>{{rental.rentDate}}</td>
+      <td *ngIf="rental.returnDate != null">{{rental.returnDate}}</td>
+      <td *ngIf="rental.returnDate == null">Belirtmedi</td>
+      </tr>
+  </tbody>
+</table>

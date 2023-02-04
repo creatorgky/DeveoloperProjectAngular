@@ -20,16 +20,19 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatIconModule } from '@angular/material/icon';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatSelectModule } from '@angular/material/select';
-import { MatOptionModule } from '@angular/material/core';
+import { MatNativeDateModule, MatOptionModule } from '@angular/material/core';
 import { MatTableModule } from '@angular/material/table';
 import { MatFormFieldModule } from "@angular/material/form-field";
+import {MatDatepickerModule} from '@angular/material/datepicker';
 
 import { ToastrModule } from 'ngx-toastr';
 import { LoginComponent } from './components/login/login.component';
-import { RentalCarComponent } from './components/rental-car/rental-car.component';
 import { CarAddComponent } from './components/car-add/car-add.component'; 
 import { AuthInterceptor } from './interceptors/auth.interceptor';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatSortModule } from '@angular/material/sort';
 import { RentalComponent } from './components/rental/rental.component';
+import { FilterPipe } from './pipes/filter.pipe';
 
 @NgModule({
   declarations: [
@@ -40,9 +43,9 @@ import { RentalComponent } from './components/rental/rental.component';
     ColorComponent,
     CarDetailComponent,
     LoginComponent,
-    RentalCarComponent,
     CarAddComponent,
-    RentalComponent
+    RentalComponent,
+    FilterPipe,
   ],
   imports: [
     BrowserModule,
@@ -62,11 +65,15 @@ import { RentalComponent } from './components/rental/rental.component';
     MatSelectModule,
     MatOptionModule,
     MatFormFieldModule, 
+    MatNativeDateModule,
+    MatDatepickerModule,
 
     ReactiveFormsModule,
     ToastrModule.forRoot({
       positionClass:"toast-top-center"
-    })  
+    }),
+    MatPaginatorModule,
+    MatSortModule  
   ],
   providers: [
     {provide:HTTP_INTERCEPTORS, useClass:AuthInterceptor, multi:true}
