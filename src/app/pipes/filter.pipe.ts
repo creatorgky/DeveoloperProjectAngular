@@ -8,7 +8,7 @@ export class FilterPipe implements PipeTransform {
 
   transform(value: RentalDetail[],filterText: string): RentalDetail[] {
     filterText = filterText?filterText.toLocaleLowerCase():""
-    return filterText?value.filter((p:RentalDetail)=>p.brandName.toLocaleLowerCase().indexOf(filterText)!==-1):value;
-  }
+    return filterText?value.filter((p:RentalDetail)=>p.firstName.toLocaleLowerCase().indexOf(filterText)!==-1):value;
+  };
 
 }

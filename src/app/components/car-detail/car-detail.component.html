@@ -1,10 +1,39 @@
-<mat-form-field appearance="fill">
-  <mat-label>Enter a date range</mat-label>
-  <mat-date-range-input [rangePicker]="picker">
-    <input matStartDate placeholder="Start date">
-    <input matEndDate placeholder="End date">
-  </mat-date-range-input>
-  <mat-hint>MM/DD/YYYY – MM/DD/YYYY</mat-hint>
-  <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
-  <mat-date-range-picker #picker></mat-date-range-picker>
-</mat-form-field>
+<div id="carouselExampleControls" class="carousel slide col-md-6" data-bs-ride="carousel">
+  <div class="carousel-inner">
+    <div *ngFor="let carImage of carImages" [class]="getImagesClass(carImage)"> 
+      <img class="d-block" [src]="getCarImagePath(carImage)"
+      width="100%" style="min-height: 400px;"> 
+  </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+<div class="col-md-5 p-5 klo">
+  <ul>
+      <li>{{ car.brandName }}</li>
+      <li>{{ car.colorName }}</li>
+      <li>{{ car.modelYear }}</li>
+      <li>{{ car.dailyPrice }}</li>
+      <li>{{ car.description }}</li>
+  </ul>
+</div>
+
+<mat-card>
+  <mat-form-field appearance="fill">
+    <mat-label>Enter a date range</mat-label>
+    <mat-date-range-input [rangePicker]="picker">
+      <input matStartDate placeholder="Start date">
+      <input matEndDate placeholder="End date">
+    </mat-date-range-input>
+    <mat-hint>DD/MM/YYYY – DD/MM/YYYY</mat-hint>
+    <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-date-range-picker #picker></mat-date-range-picker>
+  </mat-form-field>
+  <button mat-raised-button color="primary">Kirala</button>
+</mat-card>

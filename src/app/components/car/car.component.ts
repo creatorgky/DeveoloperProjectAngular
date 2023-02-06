@@ -28,7 +28,6 @@ export class CarComponent implements OnInit {
       } else {
         this.getCars();
       }
-
       this.getAllCarImages();
     });
   }
@@ -53,7 +52,7 @@ export class CarComponent implements OnInit {
     });
   }
 
-  getCarImagePath(carId: number): string {
+  getCarImagePaths(carId: number): string {
     let url: string;
     this.carImages.forEach((carImage) => {
       if (carImage.carId == carId) {

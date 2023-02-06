@@ -20,7 +20,7 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatIconModule } from '@angular/material/icon';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatSelectModule } from '@angular/material/select';
-import { MatNativeDateModule, MatOptionModule } from '@angular/material/core';
+import { MatNativeDateModule, MatOptionModule, MAT_DATE_LOCALE } from '@angular/material/core';
 import { MatTableModule } from '@angular/material/table';
 import { MatFormFieldModule } from "@angular/material/form-field";
 import {MatDatepickerModule} from '@angular/material/datepicker';
@@ -33,6 +33,7 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import { RentalComponent } from './components/rental/rental.component';
 import { FilterPipe } from './pipes/filter.pipe';
+import { RentalAddComponent } from './components/rental-add/rental-add.component';
 
 @NgModule({
   declarations: [
@@ -46,6 +47,7 @@ import { FilterPipe } from './pipes/filter.pipe';
     CarAddComponent,
     RentalComponent,
     FilterPipe,
+    RentalAddComponent,
   ],
   imports: [
     BrowserModule,
@@ -76,7 +78,8 @@ import { FilterPipe } from './pipes/filter.pipe';
     MatSortModule  
   ],
   providers: [
-    {provide:HTTP_INTERCEPTORS, useClass:AuthInterceptor, multi:true}
+    {provide:HTTP_INTERCEPTORS, useClass:AuthInterceptor, multi:true},
+    {provide: MAT_DATE_LOCALE, useValue: 'tr'},
   ],
   bootstrap: [AppComponent]
 })

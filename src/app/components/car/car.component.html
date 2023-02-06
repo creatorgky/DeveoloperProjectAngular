@@ -29,7 +29,7 @@
     <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
       <div class="col-md-4" *ngFor="let car of cars">
         <mat-card class="car-card">
-          <img  class="d-block" [src]="getCarImagePath(car.carId)">
+          <img  class="d-block" [src]="getCarImagePaths(car.carId)">
           <mat-card-header>
             <mat-card-title>{{ car.brandName }}</mat-card-title>
             <mat-card-subtitle>{{ car.modelYear }}</mat-card-subtitle>
